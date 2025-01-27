@@ -15,10 +15,22 @@ var aciertos = 0;
 
 function init() {
     //1. Genera el código random del master
+    master = generaAleatorio();
 
     //2. Crea todas las filas según el número de intentos.
 }
 
+function generaAleatorio(){
+
+        //1. Genera el código random del master
+
+        let combiGanadora = [];
+        for(let i = 0; i< MAX_COMBI_COLORES; i++){
+            let coloresAleatorios = COLORS[Math.floor(Math.random()* COLORS.length)];
+            combiGanadora.push(coloresAleatorios);
+        }
+        return combiGanadora;
+}
 
 
 /* Llamaremos a esta función desde el botón HTML de la página para comprobar la propuesta de combinación que nos ha
