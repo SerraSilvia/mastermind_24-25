@@ -8,23 +8,29 @@ const BLACK = "black";
 
 
 //Declaración de variables globales.
-const master = [];
-const userCombi = [];
+let master = [];
+let userCombi = [];
 var intento = 0;
 var aciertos = 0;
 
 function init() {
-    //1. Genera el código random del master
+    //Aĺmacenaremos el resultado en una variable
+    let result = document.querySelector('#result');
+
+    //1. Llama al código random del master
     master = generaAleatorio();
+    console.log(master);
 
     //2. Crea todas las filas según el número de intentos.
+    crearFilas();
+
 }
 
 function generaAleatorio(){
 
         //1. Genera el código random del master
-
         let combiGanadora = [];
+
         for(let i = 0; i< MAX_COMBI_COLORES; i++){
             let coloresAleatorios = COLORS[Math.floor(Math.random()* COLORS.length)];
             combiGanadora.push(coloresAleatorios);
@@ -32,6 +38,16 @@ function generaAleatorio(){
         return combiGanadora;
 }
 
+
+function crearFilas() {
+
+    // Creamos filas según intentos
+    for (let i = 0; i < MAX_INTENTOS; i++) {
+        let filas = document.querySelector("#Result");
+        // Insertar el HTML de la fila del intento
+        filas.innerHTML += ROW_RESULT;
+    }
+}
 
 /* Llamaremos a esta función desde el botón HTML de la página para comprobar la propuesta de combinación que nos ha
 introducido el usuario.
@@ -60,7 +76,7 @@ const ROW_RESULT = `<div class="rowResult w100 flex wrap">
        <div class="w25">
            <div class="celUserCombi flex"></div>
        </div>
-    </div>alis/Mastermind_CODIGO
+    </div>
     <div class="rowCercleResult w25 flex wrap center">
        <div class="w40 h40">
             <div class="cercleResult flex"></div>
@@ -74,5 +90,5 @@ const ROW_RESULT = `<div class="rowResult w100 flex wrap">
        <div class="w40 h40">
            <div class="cercleResult flex"></div>
        </div>
-    <div>
+    </div>
 </div>`;
