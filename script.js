@@ -17,16 +17,12 @@ var intento = 0;
 var aciertos = 0;
 
 function init() {
-    //Aĺmacenaremos el resultado en una variable
-    let result = document.querySelector('#result');
-
     //1. Llama al código random del master
     generaAleatorio();
     console.log(master);
 
     //2. Crea todas las filas según el número de intentos.
     crearFilas();
-
 }
 
 function generaAleatorio() {
@@ -36,7 +32,6 @@ function generaAleatorio() {
         master.push(coloresAleatorios);
     }
 }
-
 
 function crearFilas() {
     // Creamos filas según intentos
